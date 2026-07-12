@@ -1,0 +1,6 @@
+{
+  "name": "AI Student Assistant",
+  "description": "An AI-powered academic assistant that reads student emails, extracts important events like exams or interviews, and syncs them directly to Google Calendar.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

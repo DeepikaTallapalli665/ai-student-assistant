@@ -144,6 +144,7 @@ app.get(
         new: true,
       }
     );
+console.log("FRONTEND_URL =", process.env.FRONTEND_URL);
 
 res.redirect(`${process.env.FRONTEND_URL}/dashboard`);
   }

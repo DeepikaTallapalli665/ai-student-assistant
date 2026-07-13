@@ -55,12 +55,17 @@ passport.deserializeUser((user: any, done) => {
   done(null, user);
 });
 
+const callback = `${process.env.BACKEND_URL}/auth/google/callback`;
+
+console.log("BACKEND_URL =", process.env.BACKEND_URL);
+console.log("CALLBACK URL =", callback);
+
 passport.use(
   new GoogleStrategy(
     {
       clientID: process.env.GOOGLE_CLIENT_ID!,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
-callbackURL: `${process.env.BACKEND_URL}/auth/google/callback`,
+      callbackURL: callback,
     },
     (accessToken, refreshToken, profile, done) => {
       done(null, {
@@ -140,7 +145,7 @@ app.get(
       }
     );
 
-    res.redirect("http://localhost:5173/dashboard");
+res.redirect(`${process.env.FRONTEND_URL}/dashboard`);
   }
 );
 

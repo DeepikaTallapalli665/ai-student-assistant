@@ -26,6 +26,10 @@ export default function App() {
 
   useEffect(() => {
     async function loadData() {
+  console.log("API URL =", import.meta.env.VITE_API_URL);
+
+ 
+
       try {
         const meRes = await fetch(`${import.meta.env.VITE_API_URL}/api/me`,{
           credentials: "include",

@@ -16,10 +16,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "https://ai-student-assistant-kpi9t3235-deepika655.vercel.app",
-    ],
+    origin: process.env.FRONTEND_URL,
     credentials: true,
   })
 );
@@ -27,6 +24,7 @@ app.use(
 app.use(cookieParser());
 
 app.use(express.json());
+app.set("trust proxy", 1);
 
 app.use(
   session({
@@ -36,8 +34,8 @@ app.use(
     saveUninitialized: false,
     cookie: {
       httpOnly: true,
-      secure: false,
-      sameSite: "lax",
+      secure: true,        // <-- change
+      sameSite: "none",    // <-- change
     },
   })
 );

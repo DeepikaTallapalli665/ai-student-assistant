@@ -27,7 +27,7 @@ export default function App() {
   useEffect(() => {
     async function loadData() {
       try {
-        const meRes = await fetch("http://localhost:3000/api/me", {
+        const meRes = await fetch(`${import.meta.env.VITE_API_URL}/api/me`,{
           credentials: "include",
         });
 
@@ -41,14 +41,14 @@ export default function App() {
         setLoggedIn(true);
         setUser(me.user);
 
-        const emailRes = await fetch("http://localhost:3000/api/emails", {
+        const emailRes = await fetch(`${import.meta.env.VITE_API_URL}/api/emails`, {
           credentials: "include",
         });
 
         const emailData = await emailRes.json();
         setEmails(emailData);
 
-        const eventRes = await fetch("http://localhost:3000/api/events", {
+        const eventRes = await fetch(`${import.meta.env.VITE_API_URL}/api/events`, {
           credentials: "include",
         });
 
@@ -107,7 +107,7 @@ export default function App() {
                 }}
                 unreadEmailsCount={emails.length}
                 onLogout={async () => {
-                  await fetch("http://localhost:3000/logout", {
+                  await fetch(`${import.meta.env.VITE_API_URL}/logout`, {
                     credentials: "include",
                   });
 

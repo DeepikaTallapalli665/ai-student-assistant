@@ -262,7 +262,7 @@ app.post("/api/run-ai", async (req: any, res) => {
 
   try {
     const response = await fetch(
-      "https://deepika9062.app.n8n.cloud/webhook/analyze",
+      "https://deepika2005.app.n8n.cloud/webhook/analyze",
       {
         method: "POST",
         headers: {
